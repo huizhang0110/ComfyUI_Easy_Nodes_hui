@@ -14,7 +14,7 @@ git clone https://github.com/huizhang0110/ComfyUI_Easy_Nodes_hui
 and install the requirements using 
 
 ```
-..\python_embed\python.exe -s -m pip install -r requirements.txt
+..\..\..\python_embeded\python.exe -s -m pip install -r .\requirements.txt
 ```
 
 ## ✴️ The Nodes

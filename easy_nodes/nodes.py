@@ -113,7 +113,7 @@ MAX_RESOLUTION = 8192
 
 class EasyEmptyLatentImage:
 
-    resolution_dictionaly = None 
+    resolution_dictionaly = None
 
     def __init__(self, device="cpu"):
         self.device = device
@@ -154,11 +154,44 @@ class EasyEmptyLatentImage:
         return ({"samples": c_latent}, {"samples": b_latent})
 
 
+class LatentToCondition:
+    COND_KEYS = ["stable_cascade_prior"]
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "key": (s.COND_KEYS, ),
+                "latent": ("LATENT", )
+            }
+        }
+
+    RETURN_TYPES = ("CONDITIONING", )
+    RETURN_NAMES = ("conditioning", )
+    FUNCTION = "set_prior"
+    CATEGORY = "⚡⚡⚡easy_nodes_hui/latent"
+
+    def set_prior(self, key, latent):
+        # Redundant data is retained to match the comfyui original data checker
+        # TODO: redefined KSampler 
+        data = [
+            torch.zeros((1, 77, 1280)),
+            {
+                key: latent['samples'],
+                "pooled_output": torch.zeros(1, 1280)
+            }
+        ]
+        return ([data], )  
+
+
+
 # NODE MAPPING
 NODE_CLASS_MAPPINGS = {
     "EasyEmptyLatentImage": EasyEmptyLatentImage,
+    "LatentToCondition": LatentToCondition,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "EasyEmptyLatentImage": "Easy Empty Latent Image"
+    "EasyEmptyLatentImage": "empty latent",
+    "LatentToCondition": "latent to conditionaling"
 }
