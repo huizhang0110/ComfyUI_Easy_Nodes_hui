@@ -1,4 +1,4 @@
-from .latent_nodes import EasyEmptyLatentImage, LatentToCondition
+from .latent_nodes import EmptyLatentImage, LatentToCondition
 from .image_nodes import LoadImage
 from .bg_remover_nodes import BgRemover, BgRemover_ModelLoader
 
@@ -8,7 +8,7 @@ NODE_CLASS_MAPPINGS = {
     # image
     "EasyLoadImage": LoadImage,
     # latent
-    "EasyEmptyLatentImage": EasyEmptyLatentImage,
+    "EasyEmptyLatentImage": EmptyLatentImage,
     "EasyLatentToCondition": LatentToCondition,
     # bg_remover
     "EasyBgRemover": BgRemover,

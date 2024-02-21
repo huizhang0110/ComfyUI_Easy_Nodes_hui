@@ -111,7 +111,7 @@ res_list = [
 MAX_RESOLUTION = 8192
 
 
-class EasyEmptyLatentImage:
+class EmptyLatentImage:
 
     resolution_dictionaly = None
 
