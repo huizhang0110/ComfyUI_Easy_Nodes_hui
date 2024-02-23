@@ -1,1 +1,6 @@
 ipdb
+Cython
+basicsr
+onnx
+onnx2torch
+insightface

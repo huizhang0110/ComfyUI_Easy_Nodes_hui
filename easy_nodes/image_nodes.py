@@ -54,7 +54,7 @@ class LoadImage:
         else:
             output_image = output_images[0]
             output_mask = output_masks[0]
-        return (output_image, output_mask)  # torch tensor
+        return (output_image, output_mask)  # torch tensor, BHWC
 
     @classmethod
     def IS_CHANGED(s, image):

@@ -1,6 +1,7 @@
 from .latent_nodes import EmptyLatentImage, LatentToCondition
 from .image_nodes import LoadImage
 from .bg_remover_nodes import BgRemover, BgRemover_ModelLoader
+from .controlnet_nodes import EasyControlNetLoader
 
 
 # NODE MAPPING
