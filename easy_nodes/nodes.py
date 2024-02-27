@@ -1,7 +1,7 @@
 from .latent_nodes import EmptyLatentImage, LatentToCondition
 from .image_nodes import LoadImage
 from .bg_remover_nodes import BgRemover, BgRemover_ModelLoader
-from .controlnet_nodes import EasyControlNetLoader
+from .controlnet_nodes import EasyControlNetLoader, EasyControlNetApply
 
 
 # NODE MAPPING
@@ -13,7 +13,10 @@ NODE_CLASS_MAPPINGS = {
     "EasyLatentToCondition": LatentToCondition,
     # bg_remover
     "EasyBgRemover": BgRemover,
-    "EasyBgRemover_ModelLoader": BgRemover_ModelLoader
+    "EasyBgRemover_ModelLoader": BgRemover_ModelLoader,
+    # controlnet
+    "EasyControlNetLoader": EasyControlNetLoader,
+    "EasyControlNetApply": EasyControlNetApply,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -24,5 +27,8 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "EasyLatentToCondition": "latent to conditionaling",
     # bg_remover
     "EasyBgRemover": "Remove Background",
-    "EasyBgRemover_ModelLoader": "Loading BgRemover model"
+    "EasyBgRemover_ModelLoader": "Loading BgRemover model",
+    # controlnet 
+    "EasyControlNetLoader": "EasyControlNetLoader",
+    "EasyControlNetApply": "EasyControlNetApply"
 }
